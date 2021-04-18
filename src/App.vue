@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
+import '@/shared/icons';
 
 export default class App extends Vue {
   created() {
