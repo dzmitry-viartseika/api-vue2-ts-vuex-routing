@@ -9,8 +9,8 @@ import { Vue } from 'vue-property-decorator';
 
 export default class App extends Vue {
   created() {
-    const user = localStorage.getItem('user');
-    if (user) {
+    const token = localStorage.getItem('token');
+    if (token) {
       this.$router.push('/posts');
     } else {
       this.$router.push('/login');

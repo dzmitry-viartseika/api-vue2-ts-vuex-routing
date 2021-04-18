@@ -28,9 +28,7 @@ export default class InputTemplate extends Vue {
   placeholder: string;
 
   @Emit('clickHandler')
-  buttonHandler(): void {
-    console.log('123');
-  }
+  buttonHandler()
 }
 
 </script>

@@ -62,7 +62,8 @@ export default class Login extends Vue {
       email: this.email,
       password: this.password,
     };
-    localStorage.setItem('user', JSON.stringify(user));
+    console.log('user', user);
+    localStorage.setItem('token', true);
     this.$router.push('/posts');
   }
 }
