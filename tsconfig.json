@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "noEmitHelpers": false,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env",
+      "jest"
+    ],
+    "paths": {
+      "@croc/core/*": [
+        "node_modules/@croc/warp-core/dist/*"
+      ],
+      "cmf/*": [
+        "node_modules/@ctp.cmf/cmf-ui/dist/cmf/*"
+      ],
+      "jxfw/*": [
+        "node_modules/@ctp/jxfw-wc-ui/src/jxfw/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

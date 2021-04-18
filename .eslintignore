@@ -1,0 +1,15 @@
+dist/*
+node_modules/*
+src/model/model.d.ts
+src/model/model.js
+src/model/model-meta.js
+src/model/model-meta-ext.js
+src/model/model-meta-ext-reports.js
+src/model/nls/resources.js
+src/model/nls/ru/resources.js
+src/modules/sign/*
+src/shared/icons/index.ts
+src/vendor/*
+babel.config.js
+fix-resources.js
+vue.config.js
