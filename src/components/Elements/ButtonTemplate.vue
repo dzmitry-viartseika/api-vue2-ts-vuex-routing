@@ -2,8 +2,9 @@
   <button
     class="btn btn-primary"
     :class="`btn-${btnClass}`"
+    :disabled="disabled"
     @click="buttonHandler">
-    {{ buttonText }}
+      {{ buttonText }}
   </button>
 </template>
 
@@ -20,11 +21,10 @@ export default class ButtonTemplate extends Vue {
   @Prop({ default: 'primary', type: String })
   btnClass: string;
 
-  text: string;
+  @Prop()
+  disabled: boolean;
 
-  created() {
-    console.log('btnClass', this.btnClass);
-  }
+  text: string;
 
   @Emit('clickHandler')
   buttonHandler(): void {

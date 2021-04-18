@@ -1,27 +1,20 @@
 <template>
   <div id="app">
-    <ButtonTemplate
-      :buttonText="'wertey'"
-      :btnClass="'warning'"
-      @clickHandler="clickHandler"
-    />
     <router-view/>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
-
-@Component({
-  components: {
-    ButtonTemplate,
-  },
-})
+import { Vue } from 'vue-property-decorator';
 
 export default class App extends Vue {
-  clickHandler(): void {
-    console.log('text');
+  created() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.$router.push('/posts');
+    } else {
+      this.$router.push('/login');
+    }
   }
 }
 
