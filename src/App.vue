@@ -5,16 +5,17 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 import '@/shared/icons';
 
+@Component
 export default class App extends Vue {
   created() {
     const token = localStorage.getItem('token');
     if (token) {
       this.$router.push('/posts');
     } else {
-      this.$router.push('/login');
+      this.$router.push('/');
     }
   }
 }
