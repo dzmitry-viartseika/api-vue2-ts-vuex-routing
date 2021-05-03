@@ -21,8 +21,10 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Post } from '@/store/models.d';
+import { DataPostsList, Post } from '@/store/models.d';
 import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
+import postsApi from '@/api/postsApi/api';
+import storePosts from '@/store/modules/posts';
 
 @Component({
   components: {
@@ -33,12 +35,24 @@ export default class PostItem extends Vue {
   @Prop({})
   item: Post
 
+  get posts(): DataPostsList[] {
+    return storePosts.postsList || [];
+  }
+
   editPost(): void {
     console.log('editPost');
   }
 
-  deletePost(): void {
+  async deletePost(): void {
     console.log('deletePost');
+    try {
+      const { id } = this.item;
+      await postsApi.deletePost(id);
+      const filteredPosts: Post[] = this.posts.filter((post) => post.id !== id);
+      await storePosts.setPosts(filteredPosts);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 </script>
