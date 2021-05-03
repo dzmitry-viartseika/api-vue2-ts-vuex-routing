@@ -26,10 +26,10 @@
             @clickHandler="clickHandler"
           />
         </div>
-        <svg-icon
-          class="icon-on-left no-resize"
-          :name="'BookLicense'"
-        />
+<!--        <svg-icon-->
+<!--          class="icon-on-left no-resize"-->
+<!--          :name="'BookLicense'"-->
+<!--        />-->
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
 import InputTemplate from '@/components/Elements/InputTemplate.vue';
-import SvgIcon from '@/components/Icon/SvgIcon.vue';
+// import SvgIcon from '@/components/Icon/SvgIcon.vue';
 
 interface User {
   email: string;
@@ -50,7 +50,6 @@ interface User {
   components: {
     ButtonTemplate,
     InputTemplate,
-    SvgIcon,
   },
 })
 
@@ -69,7 +68,7 @@ export default class Login extends Vue {
       password: this.password,
     };
     console.log('user', user);
-    localStorage.setItem('token', true);
+    localStorage.setItem('token', 'true');
     this.$router.push('/posts');
   }
 }

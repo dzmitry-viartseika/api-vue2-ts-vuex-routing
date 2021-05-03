@@ -15,13 +15,22 @@ export interface User {
 
 export interface UserSubmit {
   email: string,
-  password: string
+  password: string,
+  age: number
 }
 
-export interface UserResponse {
-  user: User;
+export interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 }
 
-export interface ProfileResponse {
-  profile: Profile;
+export interface DataPostsList {
+  data: {
+    userId: number,
+    id: number,
+    title: string,
+    body: string,
+  }[];
 }

@@ -11,11 +11,11 @@ import '@/shared/icons';
 @Component
 export default class App extends Vue {
   created() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.$router.push('/posts');
-    } else {
+    const token: string | null = localStorage.getItem('token');
+    if (!token) {
       this.$router.push('/');
+    } else {
+      this.$router.push('/posts');
     }
   }
 }

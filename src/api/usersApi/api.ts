@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { UserSubmit } from '@/store/models';
 import { CURRENT_SERVER } from '@/api/domain';
+import { UserSubmit } from '@/store/models.d';
 
 export default {
   loginUser(user: UserSubmit) {

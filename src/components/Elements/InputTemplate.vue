@@ -27,8 +27,8 @@ export default class InputTemplate extends Vue {
   @Prop({ required: true })
   placeholder: string;
 
-  @Emit('clickHandler')
-  buttonHandler()
+  // @Emit('clickHandler')
+  // buttonHandler()
 }
 
 </script>

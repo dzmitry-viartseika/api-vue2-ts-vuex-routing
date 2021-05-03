@@ -3,3 +3,7 @@ body {
   line-height: 1.2;
   color: $color-black;
 }
+
+button + button {
+  margin-left: 15px;
+}
