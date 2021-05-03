@@ -20,4 +20,10 @@ export default {
     });
     return instCred.post('/posts', post);
   },
+  editPost({ id, post }) {
+    const instCred = axios.create({
+      baseURL: CURRENT_SERVER,
+    });
+    return instCred.patch(`/posts/${id}`, post);
+  },
 };

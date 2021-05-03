@@ -9,12 +9,20 @@
     <ButtonTemplate
       :buttonText="'Edit'"
       :btnClass="'warning'"
-      @clickHandler="editPost"
+      @clickHandler="editPost(item.id)"
     />
     <ButtonTemplate
       :buttonText="'Delete'"
       :btnClass="'warning'"
       @clickHandler="deletePost"
+    />
+    <ModalTemplate
+      :title="modalType"
+      :buttonText="'Edit'"
+      v-if="isVisibleModal === item.id"
+      :item="item"
+      @closeModal="closeModal"
+      @buttonEvent="buttonEvent"
     />
   </div>
 </template>
@@ -23,28 +31,48 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { DataPostsList, Post } from '@/store/models.d';
 import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
+import ModalTemplate from '@/components/Modal/ModalTemplate.vue';
 import postsApi from '@/api/postsApi/api';
 import storePosts from '@/store/modules/posts';
 
 @Component({
   components: {
     ButtonTemplate,
+    ModalTemplate,
   },
 })
 export default class PostItem extends Vue {
   @Prop({})
-  item: Post
+  item: Post;
+
+  modalType = '';
+
+  isVisibleModal = -1;
 
   get posts(): DataPostsList[] {
     return storePosts.postsList || [];
   }
 
-  editPost(): void {
-    console.log('editPost');
+  editPost(id: number): void {
+    this.modalType = 'Edit Post';
+    this.isVisibleModal = id;
+  }
+
+  async buttonEvent(post) {
+    try {
+      const { data } = await postsApi.editPost({ id: post.id, post });
+      const currentPostIndex = this.posts.findIndex((item) => item.id === data.id);
+      this.posts.splice(currentPostIndex, 1, data);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  closeModal(): void {
+    this.isVisibleModal = -1;
   }
 
   async deletePost(): void {
-    console.log('deletePost');
     try {
       const { id } = this.item;
       await postsApi.deletePost(id);
