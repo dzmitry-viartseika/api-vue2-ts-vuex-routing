@@ -10,8 +10,10 @@
           class="app-modal-form-wrap-header__close"
           @click="closeModal"
         >
-          x
-<!--          <closeModalIcon />-->
+          <svg-icon
+            class="icon-on-left no-resize"
+            :name="'Close'"
+          />
         </div>
       </div>
       <div class="app-modal-form-wrap-content">
@@ -53,11 +55,13 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import { Post } from '@/store/models.d';
 import InputTemplate from '@/components/Elements/InputTemplate.vue';
 import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
+import SvgIcon from '@/components/Icon/SvgIcon.vue';
 
 @Component({
   components: {
     InputTemplate,
     ButtonTemplate,
+    SvgIcon,
   },
 })
 export default class ModalTemplate extends Vue {
@@ -71,7 +75,7 @@ export default class ModalTemplate extends Vue {
   item: Post | null;
 
   @Prop({ type: Boolean })
-  closeIcon: true;
+  closeIcon: boolean;
 
   post: Post = {
     title: '',

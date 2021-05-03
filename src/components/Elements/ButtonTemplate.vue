@@ -28,7 +28,7 @@ export default class ButtonTemplate extends Vue {
 
   @Emit('clickHandler')
   buttonHandler(): void {
-    console.log('123');
+    console.log('clickHandler');
   }
 }
 

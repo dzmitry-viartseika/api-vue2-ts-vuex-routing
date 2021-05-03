@@ -26,10 +26,6 @@
             @clickHandler="clickHandler"
           />
         </div>
-<!--        <svg-icon-->
-<!--          class="icon-on-left no-resize"-->
-<!--          :name="'BookLicense'"-->
-<!--        />-->
       </div>
     </div>
   </div>
@@ -39,7 +35,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import ButtonTemplate from '@/components/Elements/ButtonTemplate.vue';
 import InputTemplate from '@/components/Elements/InputTemplate.vue';
-// import SvgIcon from '@/components/Icon/SvgIcon.vue';
 
 interface User {
   email: string;

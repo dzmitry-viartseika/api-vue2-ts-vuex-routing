@@ -53,7 +53,9 @@
     "rules": {
       "class-methods-use-this": 0,
       "import/prefer-default-export": 0,
-      "import/no-cycle": 0
+      "import/no-cycle": 0,
+      "explicit-module-boundary-types": 0,
+      "no-console": 0
     }
   },
   "browserslist": [

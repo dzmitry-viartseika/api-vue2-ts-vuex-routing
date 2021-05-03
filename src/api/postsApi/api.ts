@@ -8,7 +8,7 @@ export default {
     });
     return instCred.get(`/posts?start=${start}&_limit=${limit}`);
   },
-  deletePost(id: number) {
+  deletePost(id: number | undefined) {
     const instCred = axios.create({
       baseURL: CURRENT_SERVER,
     });

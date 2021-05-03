@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import PostItem from '@/components/Posts/PostItem.vue';
-import { DataPostsList } from '@/store/models.d';
+import { Post } from '@/store/models.d';
 
 @Component({
   components: {
@@ -20,11 +20,7 @@ import { DataPostsList } from '@/store/models.d';
 })
 export default class PostList extends Vue {
   @Prop({})
-  posts: DataPostsList[];
-
-  created() {
-    console.log('posts', this.posts);
-  }
+  posts: Post[];
 }
 </script>
 

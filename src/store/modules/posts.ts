@@ -20,10 +20,6 @@ class PostsModule extends VuexModule {
       postsList: data,
     };
   }
-
-  async deletePost(data) {
-    console.log('data', data);
-  }
 }
 
 export default getModule(PostsModule);
